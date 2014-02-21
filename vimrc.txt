@@ -1,0 +1,66 @@
+set nocompatible
+filetype off
+set showcmd
+set showmatch
+filetype plugin indent on     " required!
+
+syntax enable
+set number
+set hlsearch
+set cul                       " Find the cursor more easily
+set autoread                  " Reload file on external change
+set scrolloff=5               " keep at least 5 lines above/below
+
+" Statusline (At the bottom)
+set laststatus=2
+set statusline=%F%m%r%h%w\ (%{fugitive#statusline()}){%Y}\ [%l,%v][%p%%]
+
+" Indentation
+set autoindent smartindent
+set expandtab
+set smarttab
+set shiftwidth=2              " I prefer a two-space tab.
+set softtabstop=2
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Required to use Vundle
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+" My bundles here:
+Bundle 'gmarik/vundle'
+" Git integration
+" :Gstatus - git status
+" :Gdiff - Bring up a prevoius version side-by-side
+" :Gcommit - git commit (Seems broken)
+" :Git - Any git command
+Bundle 'tpope/vim-fugitive'
+" Required for vim-flake8
+Bundle 'tpope/vim-pathogen'
+" Python Syntax and Style - Use F7
+" Requires 'pip install flake8'
+Bundle 'nvie/vim-flake8'
+" I don't know what supertab does :(
+Bundle 'ervandew/supertab'
+" Python Autocompletion
+Bundle 'davidhalter/jedi-vim'
+" File Browser - Use CTRL-N
+Bundle 'scrooloose/nerdtree'
+" Quick vim navigation. Use with \\W or \\B
+Bundle 'Lokaltog/vim-easymotion'
+" Dart syntax
+Bundle 'dart-lang/dart-vim-plugin'
+" These are installed with this command:
+" vim +BundleInstall +qall
+
+" Highlight bad whitespace
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py match BadWhitespace /^\ \+/
+au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
+
+execute pathogen#infect()
+
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
