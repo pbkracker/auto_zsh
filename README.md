@@ -14,7 +14,8 @@ TODO:
 1. Only present brew as an option if we're on a mac.
 2. Attempt to verify installation success.
 3. Allow customization of zshrc and vimrc.
-4. Refactor.
+4. Setup SSL on zsh.sh
+5. Refactor.
  1. Reuse code in functions.
  2. Provide a list of tools in a data structure.
  3. Keep track of requirements and installation methods.
