@@ -5,6 +5,7 @@ cmd=zsh
 if ! [ $(type -P "$cmd") ]; then
   echo "$cmd could not be found."
   echo "On ubuntu, try \"sudo apt-get install zsh\""
+  echo "On Redhat/CentOS, try \"sudo yum install zsh\""
   echo "Exiting"
   exit
 fi
@@ -50,6 +51,9 @@ while true; do
     [Yy]* ) 
       curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
       echo "Done installing oh-my-zsh."
+      echo "Forcing shell change to zsh with chsh"
+      sudo chsh -s `which zsh` $USER
+      echo "Done forcing shell change to zsh."
       echo ""
       echo ""
       echo ""
@@ -58,6 +62,8 @@ while true; do
       echo "   Password: chsh: PAM authentication failed"
       echo "You can edit your ~/.bash_login and add this line:"
       echo "   exec /bin/zsh --login"
+      echo " Or do this:"
+      echo "   sudo chsh -s /bin/zsh <your_username>"
       echo "Press any key to continue:"
       read garbage
       break;;
@@ -252,7 +258,7 @@ cat <<"blahblahblah"
                           |    _                |     |   [ ##   :
      woot woot!!!         \    `--.        ____|  ,   oo_______.'
                             `_   ( \) _____/     `--___
-                            | `--)  ) `-.   `---   ( - a:f -
+                            | `--)  ) `-.   `---   ( - .:. -
                             |   '///`  | `-.
                             |     | |  |    `-.
                             |     | |  |       `-.

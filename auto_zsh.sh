@@ -10,6 +10,7 @@ if ! [ $(type -P "$cmd") ]; then
   echo ""
   echo "$cmd could not be found. Exiting."
   echo "On ubuntu, try \"sudo apt-get install zsh\""
+  echo "On Redhat/CentOS, try \"sudo yum install zsh\""
   exit
 fi
 
@@ -35,8 +36,11 @@ echo "Requirements Met. Moving on."
 ## Oh-My-ZSH:
 # Requires curl,sh,git,chsh
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-
 echo "OH-MY-ZSH Complete."
+
+echo "Forcing shell change to zsh with chsh"
+sudo chsh -s `which zsh` $USER
+echo "Done forcing shell change to zsh."
 
 ## Install Pip
 # Requires python,sudo?
@@ -123,7 +127,7 @@ cat <<"blahblahblah"
                           |    _                |     |   [ ##   :
      woot woot!!!         \    `--.        ____|  ,   oo_______.'
                             `_   ( \) _____/     `--___
-                            | `--)  ) `-.   `---   ( - a:f -
+                            | `--)  ) `-.   `---   ( - .:. -
                             |   '///`  | `-.
                             |     | |  |    `-.
                             |     | |  |       `-.
@@ -148,5 +152,7 @@ If the output above has a error like this:
 You can run this command to append a line to your .bash_login.  This will
 take effect the next time you login.
    echo "exec /bin/zsh --login" >> ~/.bash_login
+ Or, do this:
+   sudo chsh -s /bin/zsh <your_username>
 blahblahblah
 

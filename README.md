@@ -5,12 +5,7 @@ A few scripts to auto-install my favorite CLI development tools like zsh, oh-my-
 
 inter_zsh.sh is an interactive installer
 
-    curl zsh.sh/inter_zsh.sh > inter_zsh.sh; chmod +x inter_zsh.sh; ./inter_zsh.sh 
-
-auto_zsh.sh is an installer that may be piped into sh
-
-    curl zsh.sh/auto_zsh.sh | sh
-
+    sh -c "$(curl zsh.sh/zsh.sh)"
 
 vimrc.txt and zshrc.txt are optionally downloaded to replace ~/.vimrc and ~/.zshrc
 
