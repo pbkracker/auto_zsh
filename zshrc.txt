@@ -81,3 +81,8 @@ alias zsy='noglob zmv -Ls'
 
 alias zshrc='vi ~/.zshrc'
 alias vimrc='vi ~/.vimrc'
+
+# NerdTree broke because of an encoding issue when moving to zsh.
+# This fixes it.
+export LC_ALL=en_US.utf-8
+export LANG="$LC_ALL"
