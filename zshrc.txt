@@ -79,8 +79,9 @@ alias zcp='noglob zmv -C'
 alias zln='noglob zmv -L'
 alias zsy='noglob zmv -Ls'
 
-alias zshrc='vi ~/.zshrc'
-alias vimrc='vi ~/.vimrc'
+alias zshrc='vim ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias vi='vim'
 
 # NerdTree broke because of an encoding issue when moving to zsh.
 # This fixes it.
