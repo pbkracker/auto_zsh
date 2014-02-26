@@ -51,6 +51,9 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-easymotion'
 " Dart syntax
 Bundle 'dart-lang/dart-vim-plugin'
+" Shows which lines have been edited 
+" for git repositories
+Bundle 'airblade/vim-gitgutter'
 " These are installed with this command:
 " vim +BundleInstall +qall
 
